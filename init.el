@@ -15,7 +15,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; starter-kit boilerplate end here
+;; starter-kit boilerplate ends here
 
 (defvar user-home (getenv "HOME"))
 
@@ -42,9 +42,6 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
-(require 'yasnippet)
-(yas/global-mode 1)
-
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -67,3 +64,10 @@
     (mapc 'load (directory-files lib-dir t "^[^#].*el$"))))
 
 (require 'cmm-mode)
+(require 'yasnippet)
+(yas/global-mode 1)
+;; Tell yasnippet where it can find the Haskell snippets
+(setq yas/root-directory "~/.emacs.d/mysnippets/haskell-mode")
+
+;; Load the snippets
+(yas/load-directory yas/root-directory)
