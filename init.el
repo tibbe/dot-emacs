@@ -42,11 +42,8 @@
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
-(add-to-list 'load-path (concat user-home "/.emacs.d/lib/yasnippet"))
 (require 'yasnippet)
-;; (yas/initialize)
-;; (yas/load-directory (concat user-home "/.emacs.d/lib/yasnippet/snippets"))
-;; (yas/global-mode 1)
+(yas/global-mode 1)
 
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
