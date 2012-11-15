@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit)
+(defvar my-packages '(starter-kit yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -44,9 +44,9 @@
 
 (add-to-list 'load-path (concat user-home "/.emacs.d/lib/yasnippet"))
 (require 'yasnippet)
-(yas/initialize)
-(yas/load-directory (concat user-home "/.emacs.d/lib/yasnippet/snippets"))
-(yas/global-mode 1)
+;; (yas/initialize)
+;; (yas/load-directory (concat user-home "/.emacs.d/lib/yasnippet/snippets"))
+;; (yas/global-mode 1)
 
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
