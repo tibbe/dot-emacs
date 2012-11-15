@@ -28,7 +28,7 @@
   (push (concat user-home "/.cabal/bin") exec-path)
   (push "/usr/texbin" exec-path))
 
-(load (concat "~/.emacs.d/lib/haskellmode-emacs/haskell-site-file"))
+(load (concat "~/.emacs.d/lib/haskell-mode/haskell-site-file"))
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq mac-command-modifier 'meta)
 (setq visible-bell nil)
