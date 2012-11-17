@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(git-commit-mode starter-kit yasnippet)
+(defvar my-packages '(git-commit-mode protobuf-mode starter-kit yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -65,9 +65,6 @@
 
 (require 'cmm-mode)
 (require 'yasnippet)
-(yas/global-mode 1)
 ;; Tell yasnippet where it can find the Haskell snippets
-(setq yas/root-directory "~/.emacs.d/mysnippets/haskell-mode")
-
-;; Load the snippets
-(yas/load-directory yas/root-directory)
+(setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
+(yas-global-mode 1)
