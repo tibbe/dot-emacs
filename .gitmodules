@@ -1,6 +1,3 @@
-[submodule "lib/haskell-mode"]
-	path = lib/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
 [submodule "mysnippets/haskell-mode"]
 	path = mysnippets/haskell-mode
 	url = https://github.com/tibbe/yasnippet-haskell.git

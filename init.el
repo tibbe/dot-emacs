@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(git-commit-mode protobuf-mode starter-kit yasnippet)
+(defvar my-packages '(git-commit-mode haskell-mode protobuf-mode starter-kit yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -28,7 +28,6 @@
   (push (concat user-home "/.cabal/bin") exec-path)
   (push "/usr/texbin" exec-path))
 
-(load (concat "~/.emacs.d/lib/haskell-mode/haskell-site-file"))
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq mac-command-modifier 'meta)
 (setq visible-bell nil)
