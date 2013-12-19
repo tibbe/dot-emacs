@@ -40,7 +40,7 @@
 
 (defvar cmm-types
   '("bits8" "bits16" "bits32" "bits64" "float32" "float64" "I8" "I16" "I32"
-    "CInt" "CLong" "I64" "CInt" "CLong" "L_" "F_" "D_"))
+    "CInt" "CLong" "I64" "CInt" "CLong" "L_" "F_" "D_" "P64" "W8"))
 
 (defvar cmm-font-lock-defaults
       `((
