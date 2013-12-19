@@ -25,8 +25,8 @@
 (when (equal system-type 'darwin)
   (set-frame-font "Menlo-11.0")
   (setenv "PATH" (concat user-home "/bin:"
-                         user-home "/.cabal/bin:"
-                         "/usr/texbin:" (getenv "PATH")))
+                         user-home "/Library/Haskell/bin:"
+                         user-home "/.cabal/bin:" (getenv "PATH")))
   (push (concat user-home "/bin") exec-path)
   (push (concat user-home "/Library/Haskell/bin") exec-path)
   (push (concat user-home "/.cabal/bin") exec-path)
