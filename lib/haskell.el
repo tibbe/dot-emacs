@@ -1,4 +1,4 @@
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'haskell-style)
 (global-set-key (kbd "C-c C-h") 'haskell-hoogle)
 (global-set-key (kbd "C-c C-r") 'inferior-haskell-reload-file)

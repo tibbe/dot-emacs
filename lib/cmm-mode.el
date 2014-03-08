@@ -29,6 +29,8 @@
 (defvar cmm-mode-hook nil)
 
 (add-to-list 'auto-mode-alist '("\\.cmm\\'" . cmm-mode))
+(add-to-list 'auto-mode-alist '("\\.dump-cmm\\'" . cmm-mode))
+(add-to-list 'auto-mode-alist '("\\.dump-opt-cmm\\'" . cmm-mode))
 
 (defvar cmm-keywords
   '("aborts" "align" "aligned" "also" "as" "big" "bits" "byteorder" "case"
