@@ -71,3 +71,5 @@
 ;; Tell yasnippet where it can find the Haskell snippets
 (setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
 (yas-global-mode 1)
+
+(setq visible-bell 1)

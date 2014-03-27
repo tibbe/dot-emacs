@@ -26,3 +26,5 @@
 ;; (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
 (setq haskell-ghci-program-name "/usr/local/bin/ghci")
+
+(add-to-list 'auto-mode-alist '("\\.dump-simpl\\'" . ghc-core-mode))
