@@ -1,36 +1,27 @@
-;; starter-kit boilerplate
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+(defvar my-packages '(better-defaults
+                      git-commit-mode
+                      markdown-mode
+                      protobuf-mode starter-kit
+                      yasnippet
+                      haskell-mode
+                      ghc))
+(when (equal system-type 'darwin)
+  (append my-packages '(exec-path-from-shell)))
+
 (package-initialize)
-
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-;; Add in your own as you wish:
-(defvar my-packages '(git-commit-mode markdown-mode protobuf-mode starter-kit
-                                      yasnippet haskell-mode ghc)
-  "A list of packages to ensure are installed at launch.")
-
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; starter-kit boilerplate ends here
-
-(defvar user-home (getenv "HOME"))
+(setq inhibit-splash-screen t)
 
 (when (equal system-type 'darwin)
   (set-frame-font "Menlo-11.0")
-  (setenv "PATH" (concat user-home "/bin:"
-                         user-home "/Library/Haskell/bin:"
-                         user-home "/.cabal/bin:" (getenv "PATH")))
-  (push (concat user-home "/bin") exec-path)
-  (push (concat user-home "/Library/Haskell/bin") exec-path)
-  (push (concat user-home "/.cabal/bin") exec-path)
-  (push "/usr/texbin" exec-path))
+  (exec-path-from-shell-initialize))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq mac-command-modifier 'meta)
