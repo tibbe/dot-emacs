@@ -4,7 +4,7 @@
 (global-set-key (kbd "C-c C-r") 'inferior-haskell-reload-file)
 
 (add-to-list 'completion-ignored-extensions ".hi")
-(require 'haskell-style)
+;; (require 'haskell-style)
 (require 'ghc-core)
 
 (eval-after-load "haskell-mode"

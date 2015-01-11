@@ -1,25 +1,20 @@
-;; starter-kit boilerplate
+;; General configuration
+(setq inhibit-startup-message t)
+
+;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+(defvar my-packages '(git-commit-mode markdown-mode protobuf-mode
+				      better-defaults magit ido-ubiquitous
+                                      yasnippet haskell-mode ghc smex))
 (package-initialize)
-
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-;; Add in your own as you wish:
-(defvar my-packages '(git-commit-mode markdown-mode protobuf-mode starter-kit
-                                      yasnippet haskell-mode ghc)
-  "A list of packages to ensure are installed at launch.")
-
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; starter-kit boilerplate ends here
-
+;; Environment
 (defvar user-home (getenv "HOME"))
 
 (when (equal system-type 'darwin)
@@ -72,4 +67,6 @@
 (setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
 (yas-global-mode 1)
 
-(setq visible-bell 1)
+;; (setq visible-bell 1)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
