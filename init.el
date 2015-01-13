@@ -10,7 +10,7 @@
                       haskell-mode
                       ghc))
 (when (equal system-type 'darwin)
-  (append my-packages '(exec-path-from-shell)))
+  (add-to-list 'my-packages 'exec-path-from-shell))
 
 (package-initialize)
 (dolist (p my-packages)
