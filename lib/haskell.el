@@ -25,7 +25,7 @@
 (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
 
-(setq haskell-process-type 'cabal-repl)
+(setq haskell-process-type (quote cabal-repl))
 ;; end interactive-haskell-mode
 
 (add-hook 'haskell-mode-hook 'haskell-style)
