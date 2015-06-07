@@ -3,10 +3,7 @@
 
 ;; Packages
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (defvar my-packages '(git-commit-mode markdown-mode protobuf-mode
 				      better-defaults magit ido-ubiquitous
