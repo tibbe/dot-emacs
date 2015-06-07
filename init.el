@@ -4,11 +4,14 @@
 ;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/"))
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("marmalade" . "https://marmalade-repo.org/packages/"))
 
 (defvar my-packages '(git-commit-mode markdown-mode protobuf-mode
 				      better-defaults magit ido-ubiquitous
-                                      yasnippet haskell-mode ghc smex))
+                                      yasnippet haskell-mode ghc smex
+                                      exec-path-from-shell))
 (package-initialize)
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -17,15 +20,9 @@
 ;; Environment
 (defvar user-home (getenv "HOME"))
 
+(exec-path-from-shell-copy-env "PATH")
 (when (equal system-type 'darwin)
-  (set-frame-font "Menlo-11.0")
-  (setenv "PATH" (concat user-home "/bin:"
-                         user-home "/Library/Haskell/bin:"
-                         user-home "/.cabal/bin:" (getenv "PATH")))
-  (push (concat user-home "/bin") exec-path)
-  (push (concat user-home "/Library/Haskell/bin") exec-path)
-  (push (concat user-home "/.cabal/bin") exec-path)
-  (push "/usr/texbin" exec-path))
+  (set-frame-font "Menlo-11.0"))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq mac-command-modifier 'meta)
@@ -66,7 +63,5 @@
 ;; Tell yasnippet where it can find the Haskell snippets
 (setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
 (yas-global-mode 1)
-
-;; (setq visible-bell 1)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
