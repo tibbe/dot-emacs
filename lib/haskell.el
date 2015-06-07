@@ -1,6 +1,6 @@
 (require 'haskell-mode)
 
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 ;; interactive-haskell-mode
@@ -30,25 +30,10 @@
 
 (add-hook 'haskell-mode-hook 'haskell-style)
 (global-set-key (kbd "C-c C-h") 'haskell-hoogle)
-;; (global-set-key (kbd "C-c C-r") 'inferior-haskell-reload-file)
 
 (add-to-list 'completion-ignored-extensions ".hi")
 ;; (require 'haskell-style)
 (require 'ghc-core)
-
-;; (eval-after-load "haskell-mode"
-;;     '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
-
-;; (eval-after-load "haskell-cabal"
-;;     '(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
-
-;; (eval-after-load "haskell-mode"
-;;     '(define-key haskell-mode-map (kbd "C-c C-.") 'haskell-sort-imports))
-
-;; (autoload 'ghc-init "ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
-
-(setq haskell-ghci-program-name "/usr/local/bin/ghci")
 
 (add-to-list 'auto-mode-alist '("\\.dump-simpl\\'" . ghc-core-mode))
 
