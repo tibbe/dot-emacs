@@ -4,14 +4,13 @@
 ;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("marmalade" . "https://marmalade-repo.org/packages/"))
+             '("melpa-stable" . "https://melpa.org/packages/") t)
 
 (defvar my-packages '(git-commit-mode markdown-mode protobuf-mode
 				      better-defaults magit ido-ubiquitous
                                       yasnippet haskell-mode ghc smex
-                                      exec-path-from-shell))
+                                      exec-path-from-shell rust-mode toml-mode
+                                      fzf))
 (package-initialize)
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -65,3 +64,6 @@
 (yas-global-mode 1)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(require 'fzf)
+(global-set-key (kbd "C-c f") 'fzf)
