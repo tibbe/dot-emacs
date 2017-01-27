@@ -19,13 +19,15 @@
 (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
 (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
 (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
 ;; end interactive-haskell-mode
+
+(custom-set-variables '(haskell-process-type 'stack-ghci))
 
 (add-hook 'haskell-mode-hook 'haskell-style)
 (global-set-key (kbd "C-c C-h") 'haskell-hoogle)

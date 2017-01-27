@@ -6,12 +6,14 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://melpa.org/packages/") t)
 
-(defvar my-packages '(git-commit-mode markdown-mode protobuf-mode
-				      better-defaults magit ido-ubiquitous
-                                      yasnippet haskell-mode ghc smex
-                                      exec-path-from-shell rust-mode toml-mode
-                                      fzf))
+(setq my-packages '(markdown-mode protobuf-mode
+				  better-defaults magit ido-ubiquitous
+				  yasnippet haskell-mode ghc smex
+				  exec-path-from-shell rust-mode toml-mode
+				  fzf))
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
