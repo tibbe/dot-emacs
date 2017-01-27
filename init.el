@@ -10,7 +10,7 @@
 				  better-defaults magit ido-ubiquitous
 				  yasnippet haskell-mode ghc smex
 				  exec-path-from-shell rust-mode toml-mode
-				  fzf))
+				  fzf hindent))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))

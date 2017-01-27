@@ -1,39 +1,33 @@
 (require 'haskell-mode)
+(require 'haskell-compile)
+(require 'haskell-style)
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(require 'haskell-hoogle)
+(require 'hindent)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 ;; interactive-haskell-mode
-(require 'haskell-process)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (custom-set-variables
   '(haskell-process-suggest-remove-import-lines t)
   '(haskell-process-auto-import-loaded-modules t)
   '(haskell-process-log t)
-  '(haskell-process-type (quote cabal-repl)))
+  '(haskell-process-type 'stack-ghci)
+  '(haskell-compile-cabal-build-command "stack build")
+  '(setq hindent-style "johan-tibell"))
 
-(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-(define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-
-(define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
-(define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-(define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
-;; end interactive-haskell-mode
-
-(custom-set-variables '(haskell-process-type 'stack-ghci))
+;; Most key bindings are set by interactive-haskell-mode
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map (kbd "C-c C-o") 'haskell-compile))
+(eval-after-load 'haskell-cabal
+  '(define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-compile))
 
 (add-hook 'haskell-mode-hook 'haskell-style)
 (global-set-key (kbd "C-c C-h") 'haskell-hoogle)
 
 (add-to-list 'completion-ignored-extensions ".hi")
-;; (require 'haskell-style)
 (require 'ghc-core)
 
 (add-to-list 'auto-mode-alist '("\\.dump-simpl\\'" . ghc-core-mode))
