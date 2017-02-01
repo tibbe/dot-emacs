@@ -10,7 +10,7 @@
 				  better-defaults magit ido-ubiquitous
 				  yasnippet haskell-mode ghc smex
 				  exec-path-from-shell rust-mode toml-mode
-				  fzf hindent))
+				  fzf hindent projectile))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -24,6 +24,8 @@
 (exec-path-from-shell-copy-env "PATH")
 (when (equal system-type 'darwin)
   (set-frame-font "Menlo-11.0"))
+(when (equal system-type 'gnu/linux)
+  (set-frame-font "Ubuntu Mono 12"))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq mac-command-modifier 'meta)
