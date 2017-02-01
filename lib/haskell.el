@@ -3,7 +3,6 @@
 (require 'haskell-style)
 (require 'haskell-interactive-mode)
 (require 'haskell-process)
-(require 'haskell-hoogle)
 (require 'hindent)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
@@ -25,7 +24,6 @@
   '(define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-compile))
 
 (add-hook 'haskell-mode-hook 'haskell-style)
-(global-set-key (kbd "C-c C-h") 'haskell-hoogle)
 
 (add-to-list 'completion-ignored-extensions ".hi")
 (require 'ghc-core)

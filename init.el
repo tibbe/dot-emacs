@@ -69,3 +69,5 @@
 
 (require 'fzf)
 (global-set-key (kbd "C-c f") 'fzf)
+
+(setq-default fill-column 80)
