@@ -75,3 +75,7 @@
 (setq-default fill-column 80)
 
 (projectile-global-mode)
+
+(windmove-default-keybindings)
+
+(require 'ruin-mode)
